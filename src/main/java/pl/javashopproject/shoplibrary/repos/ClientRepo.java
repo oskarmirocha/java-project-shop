@@ -30,4 +30,9 @@ public class ClientRepo {
                 ));
         return 1;
     }
+
+    public int update(Client client) {
+        return jdbcTemplate.update("UPDATE clients SET name=?, surname=?, NIP=?, number=? WHERE id_client=?",
+                client.getName(), client.getSurname(), client.getNIP(), client.getNumber(), client.getId_client());
+    }
 }

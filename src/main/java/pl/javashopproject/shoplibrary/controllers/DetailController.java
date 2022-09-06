@@ -30,4 +30,21 @@ public class DetailController {
         return detailRepo.save(details);
     }
 
+    @PutMapping("/{id}")
+    public int update(@PathVariable("id") int id, @RequestBody Detail updatedDetail){
+        Detail detail = detailRepo.getById(id);
+
+        if(detail != null){
+            detail.setId_order(updatedDetail.getId_order());
+            detail.setId_product(updatedDetail.getId_product());
+            detail.setAmount(updatedDetail.getAmount());
+
+            detailRepo.update(detail);
+
+            return 1;
+        }else{
+            return -1;
+        }
+    }
+
 }

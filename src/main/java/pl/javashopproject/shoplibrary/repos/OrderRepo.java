@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import pl.javashopproject.shoplibrary.base.Order;
 
 
+
 import java.util.List;
 
 @Repository
@@ -30,5 +31,10 @@ public class OrderRepo {
                         order.getDate(), order.getId_client()
                 ));
         return 1;
+    }
+
+    public int update(Order order) {
+        return jdbcTemplate.update("UPDATE orders SET id_client=?, date=? WHERE id_order=?",
+                order.getId_order(), order.getDate(), order.getId_client());
     }
 }

@@ -30,4 +30,9 @@ public class DetailRepo {
                 ));
         return 1;
     }
+
+    public int update(Detail detail ) {
+        return jdbcTemplate.update("UPDATE details SET id_product=?, amount=? WHERE id_order=?",
+                detail.getId_product(), detail.getAmount(), detail.getId_order());
+    }
 }

@@ -29,4 +29,22 @@ public class OrderController {
     public int add(@RequestBody List<Order> orders){
         return orderRepo.save(orders);
     }
+
+    @PutMapping("/{id}")
+    public int update(@PathVariable("id") int id, @RequestBody Order updatedOrder){
+        Order order = orderRepo.getById(id);
+
+        if(order != null){
+            order.setId_order(updatedOrder.getId_order());
+            order.setDate(updatedOrder.getDate());
+            order.setId_client(updatedOrder.getId_client()
+            );
+
+            orderRepo.update(order);
+
+            return 1;
+        }else{
+            return -1;
+        }
+    }
 }

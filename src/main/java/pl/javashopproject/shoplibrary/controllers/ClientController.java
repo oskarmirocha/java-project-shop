@@ -28,4 +28,22 @@ public class ClientController {
     public int add(@RequestBody List<Client> clients){
         return clientRepo.save(clients);
     }
+
+    @PutMapping("/{id}")
+    public int update(@PathVariable("id") int id, @RequestBody Client updatedClient){
+        Client client = clientRepo.getById(id);
+
+        if(client != null){
+            client.setName(updatedClient.getName());
+            client.setSurname(updatedClient.getSurname());
+            client.setNIP(updatedClient.getNIP());
+            client.setNumber(updatedClient.getNumber());
+
+            clientRepo.update(client);
+
+            return 1;
+        }else{
+            return -1;
+        }
+    }
 }
