@@ -22,4 +22,12 @@ public class ClientRepo {
         return jdbcTemplate.queryForObject( "SELECT id_client, name, surname, NIP, number FROM clients WHERE " + "id_client = ?",
                 BeanPropertyRowMapper.newInstance(Client.class), id);
     }
+
+    public int save(List<Client> clients) {
+        clients.forEach(client -> jdbcTemplate
+                .update("INSERT INTO clients(name, surname, NIP, number) VALUES(?, ?, ?, ?)",
+                        client.getName(), client.getSurname(), client.getNIP(), client.getNumber()
+                ));
+        return 1;
+    }
 }

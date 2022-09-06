@@ -1,10 +1,7 @@
 package pl.javashopproject.shoplibrary.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.javashopproject.shoplibrary.base.Detail;
 import pl.javashopproject.shoplibrary.repos.DetailRepo;
 
@@ -18,7 +15,7 @@ public class DetailController {
     DetailRepo detailRepo;
 
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Detail> getAll(){
         return detailRepo.getAll();
     }
@@ -27,4 +24,10 @@ public class DetailController {
     public Detail getById(@PathVariable("id") int id){
         return detailRepo.getById(id);
     }
+
+    @PostMapping("")
+    public int add(@RequestBody List<Detail> details){
+        return detailRepo.save(details);
+    }
+
 }

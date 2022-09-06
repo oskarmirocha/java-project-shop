@@ -1,10 +1,7 @@
 package pl.javashopproject.shoplibrary.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.javashopproject.shoplibrary.base.Client;
 import pl.javashopproject.shoplibrary.repos.ClientRepo;
 
@@ -17,7 +14,7 @@ public class ClientController {
     @Autowired
     ClientRepo clientRepo;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Client> getAll(){
         return clientRepo.getAll();
     }
@@ -25,5 +22,10 @@ public class ClientController {
     @GetMapping("/{id}")
     public Client getById(@PathVariable("id") int id){
         return clientRepo.getById(id);
+    }
+
+    @PostMapping("")
+    public int add(@RequestBody List<Client> clients){
+        return clientRepo.save(clients);
     }
 }

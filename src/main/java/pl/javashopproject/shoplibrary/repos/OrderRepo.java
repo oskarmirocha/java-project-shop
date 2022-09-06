@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.javashopproject.shoplibrary.base.Order;
+import pl.javashopproject.shoplibrary.base.Product;
 
 import java.util.List;
 
@@ -21,5 +22,13 @@ public class OrderRepo {
     public Order getById(int id) {
         return jdbcTemplate.queryForObject( "SELECT id_order, date, id_client FROM orders WHERE " + "id_order = ?",
                 BeanPropertyRowMapper.newInstance(Order.class), id);
+    }
+
+    public int save(List<Order> orders) {
+        orders.forEach(order -> jdbcTemplate
+                .update("INSERT INTO orders(date, id_client) VALUES(?, ?)",
+                        order.getDate(), order.getId_client()
+                ));
+        return 1;
     }
 }

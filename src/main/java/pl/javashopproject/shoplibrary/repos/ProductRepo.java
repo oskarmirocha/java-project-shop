@@ -22,4 +22,12 @@ public class ProductRepo {
         return jdbcTemplate.queryForObject( "SELECT id_product, product, price FROM products WHERE " + "id_product = ?",
                 BeanPropertyRowMapper.newInstance(Product.class), id);
     }
+
+    public int save(List<Product> products) {
+        products.forEach(product -> jdbcTemplate
+                .update("INSERT INTO products(product, price) VALUES(?, ?)",
+                        product.getProduct(), product.getPrice()
+                ));
+        return 1;
+    }
 }
