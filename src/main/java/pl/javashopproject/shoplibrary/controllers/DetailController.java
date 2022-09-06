@@ -5,25 +5,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.javashopproject.shoplibrary.base.Client;
-import pl.javashopproject.shoplibrary.repos.ClientRepo;
+import pl.javashopproject.shoplibrary.base.Detail;
+import pl.javashopproject.shoplibrary.repos.DetailRepo;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/details")
+public class DetailController {
 
     @Autowired
-    ClientRepo clientRepo;
+    DetailRepo detailRepo;
+
 
     @GetMapping("/")
-    public List<Client> getAll(){
-        return clientRepo.getAll();
+    public List<Detail> getAll(){
+        return detailRepo.getAll();
     }
 
     @GetMapping("/{id}")
-    public Client getById(@PathVariable("id") int id){
-        return clientRepo.getById(id);
+    public Detail getById(@PathVariable("id") int id){
+        return detailRepo.getById(id);
     }
 }
