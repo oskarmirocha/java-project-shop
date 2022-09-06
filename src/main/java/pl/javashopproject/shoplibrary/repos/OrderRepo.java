@@ -5,7 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import pl.javashopproject.shoplibrary.base.Order;
-import pl.javashopproject.shoplibrary.base.Product;
+
 
 import java.util.List;
 

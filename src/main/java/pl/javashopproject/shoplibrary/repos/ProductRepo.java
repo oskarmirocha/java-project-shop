@@ -15,11 +15,11 @@ public class ProductRepo {
 
     public List<Product> getAll() {
         return jdbcTemplate.query("SELECT id_product, product, price FROM products",
-            BeanPropertyRowMapper.newInstance(Product.class));
+                BeanPropertyRowMapper.newInstance(Product.class));
     }
 
     public Product getById(int id) {
-        return jdbcTemplate.queryForObject( "SELECT id_product, product, price FROM products WHERE " + "id_product = ?",
+        return jdbcTemplate.queryForObject("SELECT id_product, product, price FROM products WHERE " + "id_product = ?",
                 BeanPropertyRowMapper.newInstance(Product.class), id);
     }
 
@@ -30,4 +30,10 @@ public class ProductRepo {
                 ));
         return 1;
     }
+
+    public int update(Product product) {
+        return jdbcTemplate.update("UPDATE products SET product=?, price=? WHERE id_product=?",
+                product.getProduct(), product.getPrice(), product.getId_product());
+    }
+
 }

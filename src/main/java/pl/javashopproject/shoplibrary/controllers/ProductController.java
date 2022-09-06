@@ -1,12 +1,7 @@
 package pl.javashopproject.shoplibrary.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.javashopproject.shoplibrary.base.Product;
 import pl.javashopproject.shoplibrary.repos.ProductRepo;
 
@@ -33,5 +28,21 @@ public class ProductController {
     @PostMapping("")
     public int add(@RequestBody List<Product> products){
         return productRepo.save(products);
+    }
+
+    @PutMapping("/{id}")
+    public int update(@PathVariable("id") int id, @RequestBody Product updatedProduct){
+        Product product = productRepo.getById(id);
+
+        if(product != null){
+            product.setProduct(updatedProduct.getProduct());
+            product.setPrice(updatedProduct.getPrice());
+
+            productRepo.update(product);
+
+            return 1;
+        }else{
+            return -1;
+        }
     }
 }
