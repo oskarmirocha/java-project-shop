@@ -35,4 +35,7 @@ public class DetailRepo {
         return jdbcTemplate.update("UPDATE details SET id_product=?, amount=? WHERE id_order=?",
                 detail.getId_product(), detail.getAmount(), detail.getId_order());
     }
+    public int delete(int id){
+        return jdbcTemplate.update("DELETE FROM details WHERE id_order=?", id);
+    }
 }

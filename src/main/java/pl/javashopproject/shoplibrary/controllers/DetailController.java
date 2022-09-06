@@ -47,4 +47,9 @@ public class DetailController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public int delete(@PathVariable("id") int id) {
+        return detailRepo.delete(id);
+    }
+
 }
