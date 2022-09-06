@@ -47,4 +47,8 @@ public class OrderController {
             return -1;
         }
     }
+    @DeleteMapping("/{id}")
+    public int delete(@PathVariable("id") int id) {
+        return orderRepo.delete(id);
+    }
 }

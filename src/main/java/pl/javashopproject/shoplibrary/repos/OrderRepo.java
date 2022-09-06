@@ -37,4 +37,8 @@ public class OrderRepo {
         return jdbcTemplate.update("UPDATE orders SET id_client=?, date=? WHERE id_order=?",
                 order.getId_order(), order.getDate(), order.getId_client());
     }
+
+    public int delete(int id){
+        return jdbcTemplate.update("DELETE FROM orders WHERE id_order=?", id);
+    }
 }
