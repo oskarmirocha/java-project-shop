@@ -1,4 +1,4 @@
-package pl.javashopproject.shoplibrary;
+package pl.javashopproject.shoplibrary.base;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
