@@ -45,4 +45,9 @@ public class ProductController {
             return -1;
         }
     }
+
+    @DeleteMapping("/{id}")
+    public int delete(@PathVariable("id") int id) {
+        return productRepo.delete(id);
+    }
 }

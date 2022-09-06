@@ -36,4 +36,8 @@ public class ProductRepo {
                 product.getProduct(), product.getPrice(), product.getId_product());
     }
 
+    public int delete(int id){
+        return jdbcTemplate.update("DELETE FROM products WHERE id_product=?", id);
+    }
+
 }
