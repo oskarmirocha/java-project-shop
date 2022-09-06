@@ -35,4 +35,8 @@ public class ClientRepo {
         return jdbcTemplate.update("UPDATE clients SET name=?, surname=?, NIP=?, number=? WHERE id_client=?",
                 client.getName(), client.getSurname(), client.getNIP(), client.getNumber(), client.getId_client());
     }
+
+    public int delete(int id){
+        return jdbcTemplate.update("DELETE FROM clients WHERE id_client=?", id);
+    }
 }

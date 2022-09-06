@@ -46,4 +46,9 @@ public class ClientController {
             return -1;
         }
     }
+
+    @DeleteMapping("/{id}")
+    public int delete(@PathVariable("id") int id) {
+        return clientRepo.delete(id);
+    }
 }
