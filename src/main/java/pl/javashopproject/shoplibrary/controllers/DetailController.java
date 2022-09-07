@@ -1,12 +1,13 @@
 package pl.javashopproject.shoplibrary.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import pl.javashopproject.shoplibrary.base.Detail;
 import pl.javashopproject.shoplibrary.repos.DetailRepo;
 
 import java.util.List;
-
+@Secured("ADMIN")
 @RestController
 @RequestMapping("/details")
 public class DetailController {
