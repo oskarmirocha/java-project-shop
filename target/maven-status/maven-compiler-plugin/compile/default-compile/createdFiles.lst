@@ -1,0 +1,14 @@
+pl\javashopproject\shoplibrary\controllers\OrderController.class
+pl\javashopproject\shoplibrary\base\Product.class
+pl\javashopproject\shoplibrary\repos\ProductRepo.class
+pl\javashopproject\shoplibrary\repos\DetailRepo.class
+pl\javashopproject\shoplibrary\repos\OrderRepo.class
+pl\javashopproject\shoplibrary\base\Detail.class
+pl\javashopproject\shoplibrary\repos\ClientRepo.class
+pl\javashopproject\shoplibrary\base\Client.class
+pl\javashopproject\shoplibrary\base\Order.class
+pl\javashopproject\shoplibrary\controllers\ProductController.class
+pl\javashopproject\shoplibrary\SecurityConfig.class
+pl\javashopproject\shoplibrary\controllers\ClientController.class
+pl\javashopproject\shoplibrary\controllers\DetailController.class
+pl\javashopproject\shoplibrary\ShoplibraryApplication.class
