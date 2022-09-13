@@ -1,12 +1,14 @@
 package pl.javashopproject.shoplibrary.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 import pl.javashopproject.shoplibrary.base.Product;
 import pl.javashopproject.shoplibrary.repos.ProductRepo;
 
 import java.util.List;
 
+@Secured("ADMIN")
 @RestController
 @RequestMapping("/products")
 public class ProductController {
