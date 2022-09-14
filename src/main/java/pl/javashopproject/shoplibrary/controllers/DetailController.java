@@ -7,7 +7,7 @@ import pl.javashopproject.shoplibrary.base.Detail;
 import pl.javashopproject.shoplibrary.repos.DetailRepo;
 
 import java.util.List;
-@Secured("ADMIN")
+//@Secured("ADMIN")
 @RestController
 @RequestMapping("/details")
 public class DetailController {

@@ -8,7 +8,7 @@ import pl.javashopproject.shoplibrary.repos.ClientRepo;
 
 import java.util.List;
 
-@Secured("ADMIN")
+//@Secured("ADMIN")
 @RestController
 @RequestMapping("/clients")
 public class ClientController {
