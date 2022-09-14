@@ -1,5 +1,6 @@
 package pl.javashopproject.shoplibrary;
 
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,4 @@ public class PublisherMq {
         return "sent";
 
     }
-
-
 }
